@@ -1,10 +1,9 @@
 package ehu.isad;
 
-import ehu.isad.controller.ui.*;
+import ehu.isad.controller.ui.MainKud;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
@@ -22,9 +21,7 @@ public class Main extends Application {
   private Stage stage;
 
   private MainKud mainKud;
-  private WhatWebKud whatWebKud;
-  private ZerbitzariakKud zerbitzariakKud;
-  private CMSKud cmsKud;
+
 
   private double xOffset = 0;
   private double yOffset = 0;
@@ -60,30 +57,15 @@ public class Main extends Application {
   }
   private void pantailakKargatu() throws IOException {
 
-//    FXMLLoader loaderMain = new FXMLLoader(getClass().getResource("/Main.fxml"));
-//    mainUI = (Parent) loaderMain.load();
-//    mainKud = loaderMain.getController();
-//    mainScene = new Scene(mainUI);
-//
-//    mainKud.setMainApp(this);
 
 
       FXMLLoader loaderMain = new FXMLLoader(getClass().getResource("/Main.fxml"));
 
       mainKud=new MainKud(this);
-      whatWebKud=new WhatWebKud(this);
-      cmsKud=new CMSKud(this);
-      zerbitzariakKud=new ZerbitzariakKud(this);
 
       Callback<Class<?>, Object> controllerFactory = type -> {
           if (type == MainKud.class) {
               return mainKud ;
-          } else if (type == WhatWebKud.class) {
-              return whatWebKud;
-          } else if (type == CMSKud.class) {
-              return cmsKud;
-          }else if (type == ZerbitzariakKud.class) {
-              return zerbitzariakKud;
           } else {
               // default behavior for controllerFactory:
               try {
@@ -101,21 +83,5 @@ public class Main extends Application {
       mainScene = new Scene(mainUI);
 
   }
-  public void aldatuPantaila(int index){
-      this.mainKud.aldatu_lehioa(index);
-  }
-  public void zerbitzariakBerriztatu(){
-      this.zerbitzariakKud.eguneratu();
-  }
-  public void aldatuArratoia (Cursor cursor){
-    this.stage.getScene().setCursor(cursor);
-  }
-  public static void main(String[] args) {
-    launch(args);
-  }
 
-//  public void mainErakutsi() {
-//    stage.setScene(new Scene(mainUI));
-//    stage.show();
-//  }
 }
