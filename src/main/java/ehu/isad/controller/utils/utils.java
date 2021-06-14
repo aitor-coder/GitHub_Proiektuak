@@ -13,14 +13,14 @@ public class utils {
     public utils(){
 
     }
-    public GithubModel readFromUrl(String isbn) throws IOException {
-        URL openlibrary = new URL("https://openlibrary.org/api/books?bibkeys=ISBN:"+isbn+"&jscmd=details&format=json");
+    public GithubModel readFromUrl(String izena) throws IOException {
+        URL openlibrary = new URL("https://api.github.com/repos/"+izena);
         URLConnection yc = openlibrary.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
         String inputLine = in.readLine();
         in.close();
 
-        String[] zatiak = inputLine.split("ISBN:"+isbn+"\":");
+        String[] zatiak = inputLine.split(":"+izena+"\":");
         inputLine = zatiak[1].substring(0, zatiak[1].length()-1);
         Gson gson = new Gson();
         return gson.fromJson(inputLine, GithubModel.class);
