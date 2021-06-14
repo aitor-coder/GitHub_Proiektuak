@@ -36,13 +36,20 @@ public class ZerbitzuKudeatzailea {
         }
         return pertsona_zerrenda;
     }
-//
-//    public void igo_puntuazioak(String p){
-//        String sententzia="insert into puntuazioa values ('"+ DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now())+"','"+p+"')";
-//        DBKudeatzaile db=DBKudeatzaile.getInstantzia();
-//        ResultSet erantzuna=db.execSQL(sententzia);
-//
-//    }
+
+    public void gorde_Datuak(GithubModel g){
+        String sententzia="insert into repos values ('"+g.getIzen_osoa()+"','"+g.getLizentzia()+"','"+g.getDeskribapena()+"',"+g.getIssues()+")";
+        DBKudeatzaile db=DBKudeatzaile.getInstantzia();
+        ResultSet erantzuna=db.execSQL(sententzia);
+
+    }
+
+    public void egunaratu_issues(int issues, String izena){
+        String sententzia="update repos set open_issues="+issues+" where full_name='"+izena+"';";
+        DBKudeatzaile db=DBKudeatzaile.getInstantzia();
+        ResultSet erantzuna=db.execSQL(sententzia);
+
+    }
 
 
 }

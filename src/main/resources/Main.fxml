@@ -17,7 +17,7 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Label fx:id="egoera_label" layoutX="62.0" layoutY="421.0" prefHeight="25.0" prefWidth="71.0" text="Label" />
+      <Label fx:id="egoera_label" layoutX="62.0" layoutY="421.0" prefHeight="26.0" prefWidth="658.0" />
       <TableView fx:id="taula" layoutX="47.0" layoutY="125.0" prefHeight="276.0" prefWidth="665.0">
         <columns>
           <TableColumn fx:id="izen_zutabea" prefWidth="75.0" text="Full Name" />
