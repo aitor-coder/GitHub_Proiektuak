@@ -3,6 +3,7 @@ package ehu.isad.controller.ui;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import ehu.isad.GithubDatuakModel;
 import ehu.isad.GithubModel;
+import ehu.isad.LizentziaModel;
 import ehu.isad.Main;
 import ehu.isad.controller.db.ZerbitzuKudeatzailea;
 import ehu.isad.controller.utils.Utils;
@@ -69,6 +70,15 @@ public class MainKud implements Initializable {
         ZerbitzuKudeatzailea zk=new ZerbitzuKudeatzailea();
         GithubDatuakModel g=u.readFromUrl(txt_url.getText());
         System.out.println(g.toString());
+        if(g.getLicense()==null){
+          System.out.println("Lizentzia gabe");
+          g.setLicense(new LizentziaModel("Ez dauka lizentziarik."));
+        }
+        if(g.getDescription()==null){
+          System.out.println("Deskribapen gabe.");
+          g.setDescription("Ez dauka deskribapenik");
+        }
+        System.out.println(g);
         GithubModel eredua=new GithubModel(g.getFull_name(),g.getDescription(),g.getLicense().getName(),g.getOpen_issues());
         git_zerrenda.add(eredua);
         zk.gorde_Datuak(eredua);
