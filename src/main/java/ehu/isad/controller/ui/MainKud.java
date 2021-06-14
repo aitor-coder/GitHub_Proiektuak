@@ -64,7 +64,7 @@ public class MainKud implements Initializable {
     System.out.println(txt_url.getText().split("/").length);
 
     if(txt_url.getText().split("/").length==2){
-      if(!badagoZerrendan(txt_url.getText())){
+      if(!badagoZerrendan(txt_url.getText().trim())){
         Utils u=new Utils();
         ZerbitzuKudeatzailea zk=new ZerbitzuKudeatzailea();
         GithubDatuakModel g=u.readFromUrl(txt_url.getText());
