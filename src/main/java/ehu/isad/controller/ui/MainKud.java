@@ -24,8 +24,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainKud implements Initializable {
-  private Main main;
-  private ObservableList<GithubModel> git_zerrenda= FXCollections.observableArrayList();
+  private final Main main;
+  private final ObservableList<GithubModel> git_zerrenda= FXCollections.observableArrayList();
   @FXML
   private FontAwesomeIconView btnClose;
 

@@ -3,8 +3,8 @@ package ehu.isad;
 public class LizentziaModel {
     private String name;
 
-    public LizentziaModel(String name) {
-        this.name = name;
+    public LizentziaModel(String Name){
+            this.name = Name;
     }
 
     public String getName() {
